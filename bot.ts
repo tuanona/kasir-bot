@@ -1,4 +1,4 @@
-import { Bot, Context, GrammyError, InlineKeyboard, session, SessionFlavor } from "https://deno.land/x/grammy@v1.19.2/mod.ts";
+import { Bot, Context, InlineKeyboard, session, SessionFlavor } from "https://deno.land/x/grammy@v1.19.2/mod.ts";
 import "https://deno.land/std@0.224.0/dotenv/load.ts";
 
 // =======================
