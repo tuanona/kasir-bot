@@ -243,20 +243,10 @@ async function showMainMenu(ctx: MyContext) {
     "Silakan pilih item:";
 
   if (ctx.callbackQuery) {
-    try {
-      await ctx.editMessageText(text, {
-        reply_markup: buildMenuKeyboard(uid),
-        parse_mode: "Markdown"
-      });
-    } catch (e) {
-      // cek apakah ini error "message is not modified"
-      if (e instanceof GrammyError && e.description.includes("message is not modified")) {
-        // Jika iya, abaikan error ini. Tidak perlu melakukan apa-apa.
-        console.log("Caught 'message is not modified' error, ignoring.");
-      } else {
-        throw e; // Jika bukan, lempar error kembali
-      }
-    }
+    await ctx.editMessageText(text, {
+      reply_markup: buildMenuKeyboard(uid),
+      parse_mode: "Markdown"
+    });
   } else {
     await ctx.reply(text, {
       reply_markup: buildMenuKeyboard(uid),
