@@ -1,7 +1,7 @@
 {
   "tasks": {
-    "start": "deno run --allow-net --allow-env --allow-import --allow-read --env bot.ts",
-    "dev": "deno run --allow-net --allow-env --watch bot.ts"
+    "start": "deno run --allow-net --allow-env --allow-import --allow-read main.ts",
+    "dev": "deno run --allow-net --allow-env --watch main.ts"
   },
   "imports": {
     "@grammy/types": "https://deno.land/x/grammy@v1.19.2/types.ts"
