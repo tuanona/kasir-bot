@@ -1,18 +1,19 @@
-import { Bot } from "https://deno.land/x/grammy@v1.38.2/mod.ts";
+import "https://deno.land/std@0.224.0/dotenv/load.ts";
+import { Bot } from "https://deno.land/x/grammy@v1.25.1/mod.ts";
 
-// Create an instance of the `Bot` class and pass your bot token to it.
-const bot = new Bot("8375930781:AAFZtezXuSeKJOsQDMILCJNe9kH8t9kTP04"); // <-- put your bot token between the ""
+// Ambil token dari environment variables yang sudah di-load dari file .env
+const BOT_TOKEN = Deno.env.get("BOT_TOKEN") || "";
 
-// You can now register listeners on your bot object `bot`.
-// grammY will call the listeners when users send messages to your bot.
+if (!BOT_TOKEN) {
+  console.error("Error: BOT_TOKEN tidak ditemukan di file .env");
+  Deno.exit(1);
+}
 
-// Handle the /start command.
-bot.command("start", (ctx) => ctx.reply("Welcome! Up and running."));
-// Handle other messages.
-bot.on("message", (ctx) => ctx.reply("Got another message!"));
+// Buat instance bot menggunakan token dari .env
+const bot = new Bot(BOT_TOKEN);
 
-// Now that you specified how to handle messages, you can start your bot.
-// This will connect to the Telegram servers and wait for messages.
+// (Tambahkan sisa kode bot Anda di sini)
+// bot.command("start", (ctx) => ctx.reply("Welcome!"));
+// bot.start();
 
-// Start the bot.
-bot.start();
+console.log("Bot sedang berjalan...");
